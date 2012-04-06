@@ -6,8 +6,9 @@
 
 require 'renren/config'
 require 'renren/base'
-if File.exists?('config/weibo.yml')
-  weibo_oauth = YAML.load_file('config/weibo.yml')[Rails.env || env || 'development']
-  Weibo::Config.api_key = weibo_oauth["api_key"]
-  Weibo::Config.api_secret = weibo_oauth["api_secret"]
+
+if File.exists?('config/renren.yml')
+  renren_oauth = YAML.load_file('config/renren.yml')[Rails.env || env || 'development']
+  Renren::Config.api_key = renren_oauth["api_key"]
+  Renren::Config.api_secret = renren_oauth["api_secret"]
 end
